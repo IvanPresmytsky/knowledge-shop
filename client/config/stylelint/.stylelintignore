@@ -1,0 +1,6 @@
+configs/
+coverage/
+dist/
+
+*.*
+!*.css
