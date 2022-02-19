@@ -1,12 +1,15 @@
+import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
 import './App.css';
 
 function App() {
   return (
-    <div className="app">
-      <header className="header">
-        <h1>Knowledge shop</h1>
-      </header>
-    </div>
+    <Box>
+      <AppBar className="header" component="header" position="static">
+        <Typography variant="h3" component="h1">Knowledge Shop</Typography>
+      </AppBar>
+    </Box>
   );
 }
 
