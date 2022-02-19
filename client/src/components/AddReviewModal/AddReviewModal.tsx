@@ -35,10 +35,10 @@ export const AddReviewModal = ({
 
   return (
     <Dialog open={isOpen} onClose={handleClose}>
-      <DialogTitle>Add Review</DialogTitle>
+      <DialogTitle style={{ backgroundColor: '#1976d2', color: "#fff", marginBottom: "10px" }}>Add Review</DialogTitle>
       <DialogContent>
-        <DialogContentText marginBottom={6}>
-          <Typography component="h4">{product.name}</Typography>
+        <DialogContentText >
+          <Typography component="h4" fontWeight="bold">{product.name}</Typography>
           <Image
             src={product.thumbnailImage || ''}
             style={{ height: '140px', paddingTop: 0 }}
@@ -50,6 +50,8 @@ export const AddReviewModal = ({
           />
           <Typography paragraph>{product.description}</Typography>
         </DialogContentText>
+      </DialogContent>
+      <DialogContent>
         <TextField
           autoFocus
           margin="dense"
@@ -68,17 +70,16 @@ export const AddReviewModal = ({
           variant="outlined"
           required
         />
-        <Box marginBottom={3} marginTop={3}>
           <InputLabel htmlFor="overall-rating" margin="dense">
             Please rate the course:
           </InputLabel>
           <Rating
+            size='large'
             id="overall-rating"
             name="overall-rating"
             defaultValue={product.overallRating}
             precision={0.1}
           />
-        </Box>
         <TextField
           margin="dense"
           id="review-text"
@@ -86,6 +87,7 @@ export const AddReviewModal = ({
           type="text"
           fullWidth
           multiline
+          rows={4}
           helperText="Please enter a feedback about our course"
           variant="outlined"
         />
