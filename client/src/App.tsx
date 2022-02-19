@@ -9,7 +9,7 @@ import './App.css';
 
 function App() {
   return (
-    <Box className='app'>
+    <Box className="app">
       <AppBar className="header" component="header" position="static">
         <Typography variant="h3" component="h1">
           Knowledge Shop
@@ -18,7 +18,7 @@ function App() {
       <Container component="main" className="main">
         <ProductList products={productsMock} />
       </Container>
-      <Box component="footer" className='footer' textAlign="end">
+      <Box component="footer" className="footer" textAlign="end">
         <Typography paragraph fontWeight={700} textAlign="end">
           &copy; Ivan Presmytsky
         </Typography>

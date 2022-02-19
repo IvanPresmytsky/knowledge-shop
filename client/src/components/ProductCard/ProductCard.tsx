@@ -16,7 +16,7 @@ export type TProductCardProps = {
   name: string;
   description: string;
   overallRating: number;
-  onAddReviewClick?: (e: MouseEvent) => void;
+  onAddReviewClick: (e: MouseEvent) => void;
   thumbnailImage?: string;
 };
 
@@ -29,7 +29,7 @@ const ProductCard = ({
   onAddReviewClick,
 }: TProductCardProps) => {
   return (
-    <Card id={id} className="productCard" >
+    <Card id={id} className="productCard">
       <CardHeader component="h4" title={name} />
       <CardMedia
         component="img"

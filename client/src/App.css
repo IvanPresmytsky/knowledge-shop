@@ -1,11 +1,11 @@
 .app {
   height: 100vh;
+  background-color: aliceblue;
 }
 
 .main {
   padding-top: 50px;
   height: calc(100vh - 10vh);
-  background-color: aliceblue;
 }
 
 .header {

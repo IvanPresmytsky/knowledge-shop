@@ -1,15 +1,36 @@
-import { memo } from 'react';
+import { memo, useCallback, useState, MouseEvent } from 'react';
 import Grid from '@mui/material/Grid';
 
 import ProductCard from '../ProductCard/ProductCard';
 
 import { TProduct } from '../../types';
+import AddReviewModal from '../AddReviewModal/AddReviewModal';
 
 export type TProductTypeListProps = {
   products: TProduct[];
 };
 
 export const ProductList = ({ products }: TProductTypeListProps) => {
+  const [selectedProduct, setSelectedProduct] = useState<TProduct | null>();
+  const [isModalOpened, setModalOpened] = useState(false);
+
+  const handleModalOpen = useCallback(
+    (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      if (!target?.id) {
+        return;
+      }
+      const product = products.find((item) => item._id === target.id);
+      setSelectedProduct(product);
+      setModalOpened(true);
+    },
+    [setSelectedProduct, products]
+  );
+
+  const handleModalClose = useCallback(() => {
+    setSelectedProduct(null);
+  }, [setSelectedProduct]);
+
   return (
     <Grid
       container
@@ -21,10 +42,18 @@ export const ProductList = ({ products }: TProductTypeListProps) => {
           <ProductCard
             key={product._id}
             id={product._id}
+            onAddReviewClick={handleModalOpen}
             {...product}
           />
         </Grid>
       ))}
+      {selectedProduct && (
+        <AddReviewModal
+          isOpen={isModalOpened}
+          product={selectedProduct}
+          onClose={handleModalClose}
+        />
+      )}
     </Grid>
   );
 };
