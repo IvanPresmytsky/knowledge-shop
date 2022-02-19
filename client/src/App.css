@@ -1,5 +1,21 @@
+.app {
+  height: 100vh;
+}
+
+.main {
+  padding-top: 50px;
+  height: calc(100vh - 10vh);
+  background-color: aliceblue;
+}
+
 .header {
-  min-height: 5vh;
+  height: 5vh;
   align-items: center;
-  justify-content: center;
+}
+
+.footer {
+  height: 5vh;
+  padding: 1.5vh;
+  background: #1976d2;
+  color: #fff;
 }

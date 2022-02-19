@@ -20,7 +20,7 @@ export const productsMock = [
   {
     _id: uuidv4(),
     name: 'React course',
-    description: 'Awesome course for beginners',
+    description: 'Awesome course for beginners. Try for free.',
     thumbnailImage:
       'https://www.vectorlogo.zone/logos/reactjs/reactjs-ar21.png',
     overallRating: 4.6,
