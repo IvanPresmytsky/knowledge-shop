@@ -9,6 +9,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Rating from '@mui/material/Rating';
 import Typography from '@mui/material/Typography';
 
+import { TReview } from '../../types';
 import './ProductCard.css';
 
 export type TProductCardProps = {
@@ -16,7 +17,9 @@ export type TProductCardProps = {
   name: string;
   description: string;
   overallRating: number;
+  reviews: TReview[];
   onAddReviewClick: (e: MouseEvent) => void;
+  onFeedbacksModalOpen: (e: MouseEvent) => void;
   thumbnailImage?: string;
 };
 
@@ -26,7 +29,9 @@ const ProductCard = ({
   description,
   thumbnailImage,
   overallRating,
+  reviews,
   onAddReviewClick,
+  onFeedbacksModalOpen,
 }: TProductCardProps) => {
   return (
     <Card id={id} className="productCard">
@@ -50,6 +55,11 @@ const ProductCard = ({
         <Button onClick={onAddReviewClick} id={id}>
           Add Review
         </Button>
+        {!!reviews.length && (
+          <Button id={id} onClick={onFeedbacksModalOpen}>
+            See feedbacks
+          </Button>
+        )}
       </CardActions>
     </Card>
   );

@@ -1,5 +1,9 @@
-.modalTitle {
+.addReviewModalTitle {
   background-color: #1976d2;
   color: #fff;
   margin-bottom: 10px;
+}
+
+.addReviewModalContent {
+  margin-top: 10px;
 }

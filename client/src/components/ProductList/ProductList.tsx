@@ -2,6 +2,7 @@ import { memo, useCallback, useState, MouseEvent } from 'react';
 import Grid from '@mui/material/Grid';
 
 import ProductCard from '../ProductCard/ProductCard';
+import FeedbacksModal from '../FeedbacksModal/FeedbacksModal';
 
 import { TProduct, TReview } from '../../types';
 import AddReviewModal from '../AddReviewModal/AddReviewModal';
@@ -16,9 +17,10 @@ export const ProductList = ({
   onAddReview,
 }: TProductTypeListProps) => {
   const [selectedProduct, setSelectedProduct] = useState<TProduct | null>();
-  const [isModalOpened, setModalOpened] = useState(false);
+  const [isAddReviewModalOpened, setAddReviewModalOpened] = useState(false);
+  const [isFeedbacksModalOpened, setIsFeedbacksModalOpened] = useState(false);
 
-  const handleModalOpen = useCallback(
+  const handleAddReviewModalOpen = useCallback(
     (e: MouseEvent) => {
       const target = e.target as HTMLElement;
       if (!target?.id) {
@@ -26,14 +28,33 @@ export const ProductList = ({
       }
       const product = products.find((item) => item._id === target.id);
       setSelectedProduct(product);
-      setModalOpened(true);
+      setAddReviewModalOpened(true);
     },
     [setSelectedProduct, products]
   );
 
-  const handleModalClose = useCallback(() => {
+  const handleAddReviewModalClose = useCallback(() => {
     setSelectedProduct(null);
-  }, [setSelectedProduct]);
+    setAddReviewModalOpened(false);
+  }, [setSelectedProduct, setAddReviewModalOpened]);
+
+  const handleFeedbacksModalOpen = useCallback(
+    (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      if (!target?.id) {
+        return;
+      }
+      const product = products.find((item) => item._id === target.id);
+      setSelectedProduct(product);
+      setIsFeedbacksModalOpened(true);
+    },
+    [setSelectedProduct, setIsFeedbacksModalOpened, products]
+  );
+
+  const handleFeedbacksModalClose = useCallback(() => {
+    setSelectedProduct(null);
+    setIsFeedbacksModalOpened(false);
+  }, [setSelectedProduct, setIsFeedbacksModalOpened]);
 
   return (
     <Grid
@@ -45,17 +66,25 @@ export const ProductList = ({
         <Grid item display="flex" key={product._id}>
           <ProductCard
             id={product._id}
-            onAddReviewClick={handleModalOpen}
+            onAddReviewClick={handleAddReviewModalOpen}
+            onFeedbacksModalOpen={handleFeedbacksModalOpen}
             {...product}
           />
         </Grid>
       ))}
       {selectedProduct && (
         <AddReviewModal
-          isOpen={isModalOpened}
+          isOpen={isAddReviewModalOpened}
           product={selectedProduct}
-          onClose={handleModalClose}
+          onClose={handleAddReviewModalClose}
           onAddReview={onAddReview}
+        />
+      )}
+      {selectedProduct && selectedProduct.reviews.length !== 0 && (
+        <FeedbacksModal
+          isOpen={isFeedbacksModalOpened}
+          onClose={handleFeedbacksModalClose}
+          reviews={selectedProduct?.reviews}
         />
       )}
     </Grid>

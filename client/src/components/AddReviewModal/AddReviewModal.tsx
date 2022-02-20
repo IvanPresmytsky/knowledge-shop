@@ -26,8 +26,8 @@ export const AddReviewModal = ({
 }: TAddReviewModalProps) => {
   return (
     <Dialog open={isOpen} onClose={onClose}>
-      <DialogTitle className="modalTitle">Add Review</DialogTitle>
-      <DialogContent>
+      <DialogTitle className="addReviewModalTitle">Add Review</DialogTitle>
+      <DialogContent className="addReviewModalContent">
         <Box>
           <Typography component="h4" fontWeight="bold">
             {product.name}
