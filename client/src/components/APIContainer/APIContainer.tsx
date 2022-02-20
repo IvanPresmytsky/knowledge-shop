@@ -12,12 +12,15 @@ import reviewsAPI from '../../api/reviewsAPI';
 import { TProduct, TReview } from '../../types';
 
 import './APIContainer.css';
+import Dialog from '@mui/material/Dialog';
 
 export const APIContainer = () => {
   const [loading, setLoading] = useState(false);
   const [products, setProducts] = useState<TProduct[]>([]);
   const [error, setError] = useState<Error | null>(null);
   const [createdReview, setCreatedReview] = useState<TReview | null>(null);
+  const [isReviewSuccessfullyAdded, setReviewSuccessfullyAdded] =
+    useState(false);
 
   useEffect(() => {
     setLoading(true);
@@ -33,7 +36,11 @@ export const APIContainer = () => {
       reviewsAPI.createReview(
         productId,
         reviewData,
-        (data: TReview) => setCreatedReview(data),
+        (data: TReview) => {
+          setCreatedReview(data);
+          setReviewSuccessfullyAdded(true);
+          setTimeout(() => setReviewSuccessfullyAdded(false), 1500);
+        },
         (APIError: Error) => setError(APIError),
         () => setLoading(false)
       );
@@ -73,6 +80,12 @@ export const APIContainer = () => {
 
   return (
     <Container component="main" className="main">
+      <Dialog open={isReviewSuccessfullyAdded}>
+        <Alert severity="success" className="successDialog">
+          <AlertTitle>Review Added</AlertTitle>
+          Thank you for your feedback!
+        </Alert>
+      </Dialog>
       <ProductList products={products} onAddReview={handleAddReview} />
     </Container>
   );
