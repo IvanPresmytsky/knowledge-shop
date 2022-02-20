@@ -1,0 +1,51 @@
+[
+    {
+        "_id": "01",
+        "name": "Redux course",
+        "description": "A good course to get aquatinted with the best state management library",
+        "overallRating": 0,
+        "reviews": [
+          {
+            "reviewerName": "Dan Abramov",
+            "reviewText": "Give me my money back!!! The worst course ever",
+            "overallRating": 0
+          }
+        ]
+    },
+    {
+        "_id": "02",
+        "name": "React course",
+        "description": "Awesome course for beginners. Try it for free.",
+        "thumbnailImage": "",
+        "overallRating": 4.6,
+        "reviews": []
+    },
+    {
+        "_id": "03",
+        "name": "NodeJs",
+        "description": "NodeJS deep dive",
+        "thumbnailImage": "",
+        "overallRating": 3,
+        "reviews": [
+          {
+            "reviewerName": "Leonardo D",
+            "reviewText": "We need to go deeper",
+            "overallRating": 3
+          }
+        ]
+    },
+    {
+        "_id": "04",
+        "name": "MaxProfit algorithm",
+        "description": "1001 ways to solve MaxProfit task",
+        "thumbnailImage": "",
+        "overallRating": 5,
+        "reviews": [
+          {
+            "reviewerName": "Ivan",
+            "reviewText": "I definitely like it. After passing it, finally I solve it!",
+            "overallRating": 5
+          }
+        ]
+    }
+]
