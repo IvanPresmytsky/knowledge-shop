@@ -10,7 +10,7 @@ function App() {
   return (
     <Box className="app">
       <AppBar className="header" component="header" position="static">
-        <Typography variant="h3" component="h1">
+        <Typography variant="h4" component="h1">
           Knowledge Shop
         </Typography>
       </AppBar>

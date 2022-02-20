@@ -8,33 +8,22 @@ import ProductList from '../ProductList/ProductList';
 import { TProduct } from '../../types';
 import Alert from '@mui/material/Alert';
 import AlertTitle from '@mui/material/AlertTitle';
+import productsAPI from '../../api/productsAPI';
 
 import './APIContainer.css';
-
-const API_ENDPOINT = 'http://localhost:9000/api/products';
 
 export const APIContainer = () => {
   const [loading, setLoading] = useState(false);
   const [products, setProducts] = useState<TProduct[]>([]);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState<Error | null>(null);
 
   useEffect(() => {
     setLoading(true);
-    fetch(API_ENDPOINT)
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error('Something went wrong!');
-        }
-        return response.json();
-      })
-      .then((data) => {
-        setProducts(data);
-      })
-      .catch((err) => {
-        setError(err);
-        console.error(err);
-      })
-      .finally(() => setLoading(false));
+    productsAPI.getProducts(
+      (data: TProduct[]) => setProducts(data),
+      (APIError: Error) => setError(APIError),
+      () => setLoading(false)
+    );
   }, []);
 
   if (loading) {
