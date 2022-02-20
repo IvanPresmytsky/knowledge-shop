@@ -12,9 +12,7 @@ import InputAdornment from '@mui/material/InputAdornment';
 import InputLabel from '@mui/material/InputLabel';
 import Rating from '@mui/material/Rating';
 import TextField from '@mui/material/TextField';
-import FormControl from '@mui/material/FormControl';
 import Typography from '@mui/material/Typography';
-import Box from '@mui/material/Box';
 
 import { TProduct } from '../../types';
 
@@ -35,10 +33,20 @@ export const AddReviewModal = ({
 
   return (
     <Dialog open={isOpen} onClose={handleClose}>
-      <DialogTitle style={{ backgroundColor: '#1976d2', color: "#fff", marginBottom: "10px" }}>Add Review</DialogTitle>
+      <DialogTitle
+        style={{
+          backgroundColor: '#1976d2',
+          color: '#fff',
+          marginBottom: '10px',
+        }}
+      >
+        Add Review
+      </DialogTitle>
       <DialogContent>
-        <DialogContentText >
-          <Typography component="h4" fontWeight="bold">{product.name}</Typography>
+        <DialogContentText>
+          <Typography component="h4" fontWeight="bold">
+            {product.name}
+          </Typography>
           <Image
             src={product.thumbnailImage || ''}
             style={{ height: '140px', paddingTop: 0 }}
@@ -70,16 +78,16 @@ export const AddReviewModal = ({
           variant="outlined"
           required
         />
-          <InputLabel htmlFor="overall-rating" margin="dense">
-            Please rate the course:
-          </InputLabel>
-          <Rating
-            size='large'
-            id="overall-rating"
-            name="overall-rating"
-            defaultValue={product.overallRating}
-            precision={0.1}
-          />
+        <InputLabel htmlFor="overall-rating" margin="dense">
+          Please rate the course:
+        </InputLabel>
+        <Rating
+          size="large"
+          id="overall-rating"
+          name="overall-rating"
+          defaultValue={product.overallRating}
+          precision={0.1}
+        />
         <TextField
           margin="dense"
           id="review-text"

@@ -1,10 +1,9 @@
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
-import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 
-import ProductList from './components/ProductList/ProductList';
-import { productsMock } from './mocks/products';
+import APIContainer from './components/APIContainer/APIContainer';
+
 import './App.css';
 
 function App() {
@@ -15,9 +14,7 @@ function App() {
           Knowledge Shop
         </Typography>
       </AppBar>
-      <Container component="main" className="main">
-        <ProductList products={productsMock} />
-      </Container>
+      <APIContainer />
       <Box component="footer" className="footer" textAlign="end">
         <Typography paragraph fontWeight={700} textAlign="end">
           &copy; Ivan Presmytsky

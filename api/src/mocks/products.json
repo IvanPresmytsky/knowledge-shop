@@ -3,6 +3,7 @@
         "_id": "01",
         "name": "Redux course",
         "description": "A good course to get aquatinted with the best state management library",
+        "thumbnailImage": "https://cdn-ssl-devio-img.classmethod.jp/wp-content/uploads/2021/06/unnamed-file-1.png",
         "overallRating": 0,
         "reviews": [
           {
@@ -16,7 +17,7 @@
         "_id": "02",
         "name": "React course",
         "description": "Awesome course for beginners. Try it for free.",
-        "thumbnailImage": "",
+        "thumbnailImage": "https://www.vectorlogo.zone/logos/reactjs/reactjs-ar21.png",
         "overallRating": 4.6,
         "reviews": []
     },
@@ -24,7 +25,7 @@
         "_id": "03",
         "name": "NodeJs",
         "description": "NodeJS deep dive",
-        "thumbnailImage": "",
+        "thumbnailImage": "https://logowik.com/content/uploads/images/nodejs.jpg",
         "overallRating": 3,
         "reviews": [
           {
@@ -38,7 +39,7 @@
         "_id": "04",
         "name": "MaxProfit algorithm",
         "description": "1001 ways to solve MaxProfit task",
-        "thumbnailImage": "",
+        "thumbnailImage": "https://www.pngitem.com/pimgs/m/211-2110657_confused-person-my-hero-academia-ship-memes-hd.png",
         "overallRating": 5,
         "reviews": [
           {

@@ -38,9 +38,8 @@ export const ProductList = ({ products }: TProductTypeListProps) => {
       spacing={{ xs: 1, sm: 2, md: 3, lg: 4, xl: 5 }}
     >
       {products.map((product: TProduct) => (
-        <Grid item display="flex">
+        <Grid item display="flex" key={product._id}>
           <ProductCard
-            key={product._id}
             id={product._id}
             onAddReviewClick={handleModalOpen}
             {...product}
