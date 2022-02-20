@@ -24,7 +24,7 @@
     {
         "_id": "03",
         "name": "NodeJs",
-        "description": "NodeJS deep dive",
+        "description": "NodeJS deep dive. Buy our course and become a NodeJS professional",
         "thumbnailImage": "https://logowik.com/content/uploads/images/nodejs.jpg",
         "overallRating": 3,
         "reviews": [
@@ -38,7 +38,7 @@
     {
         "_id": "04",
         "name": "MaxProfit algorithm",
-        "description": "1001 ways to solve MaxProfit task",
+        "description": "1001 ways to solve MaxProfit task. Buy this course and solve it",
         "thumbnailImage": "https://www.pngitem.com/pimgs/m/211-2110657_confused-person-my-hero-academia-ship-memes-hd.png",
         "overallRating": 5,
         "reviews": [
@@ -48,5 +48,18 @@
             "overallRating": 5
           }
         ]
-    }
+    },
+    {
+      "_id": "05",
+      "name": "How to make nice preview",
+      "description": "With our course you can find and paste nice previews to your cards",
+      "overallRating": 3,
+      "reviews": [
+        {
+          "reviewerName": "Cards maker",
+          "reviewText": "It's too hard for mee(((",
+          "overallRating": 3
+        }
+      ]
+  }
 ]

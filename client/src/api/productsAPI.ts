@@ -10,7 +10,7 @@ class ProductsAPI extends BaseAPI {
     },
     onFinally = () => {}
   ) {
-    this.get('/products')
+    this.get('products')
       .then((result) => {
         BaseAPI.handleError(result, PRODUCTS_API_ERRORS);
         return result.json();

@@ -12,6 +12,9 @@ import Typography from '@mui/material/Typography';
 import { TReview } from '../../types';
 import './ProductCard.css';
 
+const DEFAULT_THUMBNAIL_IMG =
+  'https://shahidafridifoundation.org/wp-content/uploads/2020/06/no-preview.jpg';
+
 export type TProductCardProps = {
   id: string;
   name: string;
@@ -27,7 +30,7 @@ const ProductCard = ({
   id,
   name,
   description,
-  thumbnailImage,
+  thumbnailImage = DEFAULT_THUMBNAIL_IMG,
   overallRating,
   reviews,
   onAddReviewClick,

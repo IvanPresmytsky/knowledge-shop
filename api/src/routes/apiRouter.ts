@@ -64,6 +64,6 @@ router.post(ERoutes.Reviews, (req: Request, res: Response) => {
   return res.status(CREATED).json(body);
 });
 
-router.use('/products', router);
+router.use('/api', router);
 
 export default router;

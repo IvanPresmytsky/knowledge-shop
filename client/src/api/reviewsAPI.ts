@@ -11,7 +11,7 @@ class ReviewsAPI extends BaseAPI {
     },
     onFinally = () => {}
   ) {
-    this.get(`/products/${productId}/reviews`)
+    this.get(`products/${productId}/reviews`)
       .then((result) => {
         BaseAPI.handleError(result, REVIEWS_API_ERRORS);
         return result.json();
