@@ -3,14 +3,18 @@ import Grid from '@mui/material/Grid';
 
 import ProductCard from '../ProductCard/ProductCard';
 
-import { TProduct } from '../../types';
+import { TProduct, TReview } from '../../types';
 import AddReviewModal from '../AddReviewModal/AddReviewModal';
 
 export type TProductTypeListProps = {
   products: TProduct[];
+  onAddReview: (productId: string, reviewData: TReview) => void;
 };
 
-export const ProductList = ({ products }: TProductTypeListProps) => {
+export const ProductList = ({
+  products,
+  onAddReview,
+}: TProductTypeListProps) => {
   const [selectedProduct, setSelectedProduct] = useState<TProduct | null>();
   const [isModalOpened, setModalOpened] = useState(false);
 
@@ -51,6 +55,7 @@ export const ProductList = ({ products }: TProductTypeListProps) => {
           isOpen={isModalOpened}
           product={selectedProduct}
           onClose={handleModalClose}
+          onAddReview={onAddReview}
         />
       )}
     </Grid>

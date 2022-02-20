@@ -1,4 +1,4 @@
-import { memo, useCallback } from 'react';
+import { memo, useCallback, useState } from 'react';
 
 import Image from 'material-ui-image';
 import AccountCircle from '@mui/icons-material/AccountCircle';
@@ -14,22 +14,66 @@ import Rating from '@mui/material/Rating';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 
-import { TProduct } from '../../types';
+import { TProduct, TReview } from '../../types';
 
 export type TReviewModalProps = {
   isOpen: boolean;
   onClose: () => void;
+  onAddReview: (productId: string, reviewData: TReview) => void;
   product: TProduct;
 };
 
 export const AddReviewModal = ({
   isOpen,
   onClose,
+  onAddReview,
   product,
 }: TReviewModalProps) => {
+  const [reviewerName, setReviewerName] = useState('');
+  const [reviewText, setReviewText] = useState('');
+  const [overallRating, setOverallRating] = useState(product.overallRating);
+
+  const handleReviewerNameChange = useCallback(
+    (e) => {
+      setReviewerName(e.target.value);
+    },
+    [setReviewerName]
+  );
+
+  const handleReviewTextChange = useCallback(
+    (e) => {
+      setReviewText(e.target.value);
+    },
+    [setReviewText]
+  );
+
+  const handleOverallRatingChange = useCallback(
+    (e) => {
+      setOverallRating(+e.target.value);
+    },
+    [setOverallRating]
+  );
+
   const handleClose = useCallback(() => {
     onClose();
   }, [onClose]);
+
+  const handleAddReview = useCallback(() => {
+    const reviewData = {
+      reviewerName,
+      reviewText,
+      overallRating,
+    };
+    onAddReview(product._id, reviewData);
+    onClose();
+  }, [
+    onAddReview,
+    onClose,
+    reviewText,
+    reviewerName,
+    overallRating,
+    product._id,
+  ]);
 
   return (
     <Dialog open={isOpen} onClose={handleClose}>
@@ -77,6 +121,8 @@ export const AddReviewModal = ({
           }}
           variant="outlined"
           required
+          onChange={handleReviewerNameChange}
+          value={reviewerName}
         />
         <InputLabel htmlFor="overall-rating" margin="dense">
           Please rate the course:
@@ -87,6 +133,8 @@ export const AddReviewModal = ({
           name="overall-rating"
           defaultValue={product.overallRating}
           precision={0.1}
+          onChange={handleOverallRatingChange}
+          value={overallRating}
         />
         <TextField
           margin="dense"
@@ -98,11 +146,13 @@ export const AddReviewModal = ({
           rows={4}
           helperText="Please enter a feedback about our course"
           variant="outlined"
+          onChange={handleReviewTextChange}
+          value={reviewText}
         />
       </DialogContent>
       <DialogActions>
         <Button onClick={handleClose}>Cancel</Button>
-        <Button onClick={handleClose}>Add Review</Button>
+        <Button onClick={handleAddReview}>Add Review</Button>
       </DialogActions>
     </Dialog>
   );
