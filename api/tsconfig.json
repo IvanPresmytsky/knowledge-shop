@@ -84,6 +84,9 @@
       ],
       "@mocks/*": [
         "src/mocks/*"
+      ],
+      "@utils/*": [
+        "src/utils/*"
       ]
     },
     "useUnknownInCatchVariables": false
