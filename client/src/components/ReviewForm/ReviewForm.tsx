@@ -26,6 +26,11 @@ export const ReviewForm = ({
   const [reviewerName, setReviewerName] = useState('');
   const [reviewText, setReviewText] = useState('');
   const [overallRating, setOverallRating] = useState(product.overallRating);
+  const [isRatingChanged, setIsRatingChanged] = useState(false);
+  const [hasRatingValidationError, setHasRatingValidationError] =
+    useState(false);
+  const [hasReviewerNameValidationError, setHasReviewerNameValidationError] =
+    useState(false);
 
   const handleReviewerNameChange = useCallback(
     (e) => {
@@ -44,25 +49,40 @@ export const ReviewForm = ({
   const handleOverallRatingChange = useCallback(
     (e) => {
       setOverallRating(+e.target.value);
+      setIsRatingChanged(true);
     },
-    [setOverallRating]
+    [setOverallRating, setIsRatingChanged]
   );
 
-  const handleClose = useCallback(() => {
-    onClose();
-  }, [onClose]);
-
   const handleAddReview = useCallback(() => {
+    if (!isRatingChanged) {
+      setHasRatingValidationError(true);
+    } else {
+      setHasRatingValidationError(false);
+    }
+
+    if (!reviewerName?.trim()) {
+      setHasReviewerNameValidationError(true);
+    }
+
+    if (!(isRatingChanged && reviewerName?.trim())) {
+      return;
+    }
+
     const reviewData = {
-      reviewerName,
-      reviewText,
+      reviewerName: reviewerName.trim(),
+      reviewText: reviewText.trim(),
       overallRating,
     };
+
     onAddReview(product._id, reviewData);
     onClose();
   }, [
     onAddReview,
     onClose,
+    setHasRatingValidationError,
+    setHasReviewerNameValidationError,
+    isRatingChanged,
     reviewText,
     reviewerName,
     overallRating,
@@ -91,8 +111,13 @@ export const ReviewForm = ({
           required
           onChange={handleReviewerNameChange}
           value={reviewerName}
+          error={hasReviewerNameValidationError}
         />
-        <InputLabel htmlFor="overall-rating" margin="dense">
+        <InputLabel
+          htmlFor="overall-rating"
+          margin="dense"
+          error={hasRatingValidationError}
+        >
           Please rate the course:
         </InputLabel>
         <Rating
@@ -119,7 +144,7 @@ export const ReviewForm = ({
         />
       </DialogContent>
       <DialogActions>
-        <Button onClick={handleClose}>Cancel</Button>
+        <Button onClick={onClose}>Cancel</Button>
         <Button onClick={handleAddReview}>Add Review</Button>
       </DialogActions>
     </Box>
