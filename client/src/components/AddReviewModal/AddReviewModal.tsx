@@ -9,6 +9,7 @@ import Box from '@mui/material/Box';
 
 import ReviewForm from '../ReviewForm/ReviewForm';
 import { TProduct } from '../../types';
+import { DEFAULT_PREVIEW_HEIGHT, DEFAULT_THUMBNAIL_IMG } from '../../consts';
 import { TAddReviewHandler } from '../ProductList/ProductList';
 import './AddReviewModal.css';
 
@@ -34,10 +35,10 @@ export const AddReviewModal = ({
             {product.name}
           </Typography>
           <Image
-            src={product.thumbnailImage || ''}
-            style={{ height: '140px', paddingTop: 0 }}
+            src={product.thumbnailImage || DEFAULT_THUMBNAIL_IMG}
+            style={{ height: DEFAULT_PREVIEW_HEIGHT, paddingTop: 0 }}
             imageStyle={{
-              height: '140px',
+              height: DEFAULT_PREVIEW_HEIGHT,
               objectFit: 'cover',
               backgroundSize: 'cover',
             }}

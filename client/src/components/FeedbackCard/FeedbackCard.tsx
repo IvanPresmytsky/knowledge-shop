@@ -6,6 +6,7 @@ import CardHeader from '@mui/material/CardHeader';
 import Rating from '@mui/material/Rating';
 import Typography from '@mui/material/Typography';
 
+import { DEFAULT_RATING_PRECISION } from '../../consts';
 import { TReview } from '../../types';
 
 export type TFeedbackCardProps = {
@@ -21,7 +22,7 @@ const FeedbackCard = ({ review }: TFeedbackCardProps) => {
         <Rating
           size="large"
           defaultValue={review.rating}
-          precision={0.1}
+          precision={DEFAULT_RATING_PRECISION}
           readOnly
         />
       </CardContent>

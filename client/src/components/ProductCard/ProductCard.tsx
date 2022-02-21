@@ -9,11 +9,13 @@ import CardMedia from '@mui/material/CardMedia';
 import Rating from '@mui/material/Rating';
 import Typography from '@mui/material/Typography';
 
+import {
+  DEFAULT_PREVIEW_HEIGHT,
+  DEFAULT_RATING_PRECISION,
+  DEFAULT_THUMBNAIL_IMG,
+} from '../../consts';
 import { TReview } from '../../types';
 import './ProductCard.css';
-
-const DEFAULT_THUMBNAIL_IMG =
-  'https://shahidafridifoundation.org/wp-content/uploads/2020/06/no-preview.jpg';
 
 export type TProductCardProps = {
   id: string;
@@ -41,7 +43,7 @@ const ProductCard = ({
       <CardHeader component="h4" title={name} />
       <CardMedia
         component="img"
-        height="140"
+        height={DEFAULT_PREVIEW_HEIGHT}
         image={thumbnailImage}
         alt={name}
       />
@@ -49,8 +51,8 @@ const ProductCard = ({
         <Typography paragraph>{description}</Typography>
         <Rating
           size="large"
-          defaultValue={overallRating}
-          precision={0.1}
+          value={overallRating}
+          precision={DEFAULT_RATING_PRECISION}
           readOnly
         />
       </CardContent>

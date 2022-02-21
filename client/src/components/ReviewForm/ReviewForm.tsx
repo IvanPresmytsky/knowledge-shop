@@ -12,6 +12,7 @@ import Box from '@mui/material/Box';
 
 import { TProduct } from '../../types';
 import { TAddReviewHandler } from '../ProductList/ProductList';
+import { DEFAULT_RATING_PRECISION } from '../../consts';
 
 export type TReviewFormProps = {
   onClose: () => void;
@@ -126,7 +127,7 @@ export const ReviewForm = ({
           id="overall-rating"
           name="overall-rating"
           defaultValue={product.overallRating}
-          precision={0.1}
+          precision={DEFAULT_RATING_PRECISION}
           onChange={handleRatingChange}
           value={rating}
         />
