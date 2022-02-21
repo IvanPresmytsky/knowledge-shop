@@ -8,13 +8,14 @@ import InputAdornment from '@mui/material/InputAdornment';
 import InputLabel from '@mui/material/InputLabel';
 import Rating from '@mui/material/Rating';
 import TextField from '@mui/material/TextField';
-
-import { TProduct, TReview } from '../../types';
 import Box from '@mui/material/Box';
+
+import { TProduct } from '../../types';
+import { TAddReviewHandler } from '../ProductList/ProductList';
 
 export type TReviewFormProps = {
   onClose: () => void;
-  onAddReview: (productId: string, reviewData: TReview) => void;
+  onAddReview: TAddReviewHandler;
   product: TProduct;
 };
 

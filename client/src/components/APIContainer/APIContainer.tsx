@@ -6,19 +6,19 @@ import Box from '@mui/material/Box';
 import ProductList from '../ProductList/ProductList';
 import Alert from '@mui/material/Alert';
 import AlertTitle from '@mui/material/AlertTitle';
+import Dialog from '@mui/material/Dialog';
 
 import productsAPI from '../../api/productsAPI';
-import reviewsAPI from '../../api/reviewsAPI';
 import { TProduct, TReview } from '../../types';
+import { TReviewBody } from '../../api/types';
 
 import './APIContainer.css';
-import Dialog from '@mui/material/Dialog';
 
 export const APIContainer = () => {
   const [loading, setLoading] = useState(false);
   const [products, setProducts] = useState<TProduct[]>([]);
   const [error, setError] = useState<Error | null>(null);
-  const [createdReview, setCreatedReview] = useState<TReview | null>(null);
+  const [createdReview, setCreatedReview] = useState<object | null>(null);
   const [isReviewSuccessfullyAdded, setReviewSuccessfullyAdded] =
     useState(false);
 
@@ -32,8 +32,8 @@ export const APIContainer = () => {
   }, [createdReview, setProducts, setError, setLoading]);
 
   const handleAddReview = useCallback(
-    (productId: string, reviewData: TReview) => {
-      reviewsAPI.createReview(
+    (productId: string, reviewData: TReviewBody) => {
+      productsAPI.createReview(
         productId,
         reviewData,
         (data: TReview) => {
@@ -45,7 +45,7 @@ export const APIContainer = () => {
         () => setLoading(false)
       );
     },
-    [setCreatedReview, setError, setLoading]
+    [setError, setLoading, setReviewSuccessfullyAdded, setCreatedReview]
   );
 
   if (loading) {

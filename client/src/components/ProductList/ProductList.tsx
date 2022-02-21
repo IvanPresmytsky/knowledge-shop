@@ -4,12 +4,18 @@ import Grid from '@mui/material/Grid';
 import ProductCard from '../ProductCard/ProductCard';
 import FeedbacksModal from '../FeedbacksModal/FeedbacksModal';
 
-import { TProduct, TReview } from '../../types';
+import { TProduct } from '../../types';
 import AddReviewModal from '../AddReviewModal/AddReviewModal';
+import { TReviewBody } from '../../api/types';
+
+export type TAddReviewHandler = (
+  productId: string,
+  reviewData: TReviewBody
+) => void;
 
 export type TProductTypeListProps = {
   products: TProduct[];
-  onAddReview: (productId: string, reviewData: TReview) => void;
+  onAddReview: TAddReviewHandler;
 };
 
 export const ProductList = ({

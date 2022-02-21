@@ -8,13 +8,14 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 
 import ReviewForm from '../ReviewForm/ReviewForm';
-import { TProduct, TReview } from '../../types';
+import { TProduct } from '../../types';
+import { TAddReviewHandler } from '../ProductList/ProductList';
 import './AddReviewModal.css';
 
 export type TAddReviewModalProps = {
   isOpen: boolean;
   onClose: () => void;
-  onAddReview: (productId: string, reviewData: TReview) => void;
+  onAddReview: TAddReviewHandler;
   product: TProduct;
 };
 

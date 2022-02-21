@@ -28,7 +28,7 @@ export const FeedbacksModal = ({
       <DialogContent className="feedbacksModalContent">
         <Stack spacing={2}>
           {reviews.map((review) => (
-            <FeedbackCard key={review.reviewerName} review={review} />
+            <FeedbackCard key={review._id} review={review} />
           ))}
         </Stack>
       </DialogContent>

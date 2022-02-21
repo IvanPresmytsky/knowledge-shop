@@ -1,4 +1,5 @@
 export type TReview = {
+  _id: string;
   reviewerName: string;
   reviewText?: string;
   rating: number;

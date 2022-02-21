@@ -23,9 +23,9 @@ export class BaseAPI {
     });
   }
 
-  post(route: string, body = {}, headers: THeaders = {}) {
+  patch(route: string, body = {}, headers: THeaders = {}) {
     return fetch(`${this.url}/${route}`, {
-      method: 'POST',
+      method: 'PATCH',
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
