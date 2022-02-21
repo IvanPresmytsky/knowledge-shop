@@ -1,3 +1,4 @@
+import { ValidationError } from 'express-validator';
 import HttpStatusCodes from 'http-status-codes';
 
 export abstract class CustomError extends Error {
@@ -7,6 +8,17 @@ export abstract class CustomError extends Error {
   constructor(msg: string, httpStatus: number) {
     super(msg);
     this.HttpStatus = httpStatus;
+  }
+}
+
+export class ParamsInvalidError extends CustomError {
+
+  public static readonly Msg = 'The following params are invalid: ';
+  public static readonly HttpStatus = HttpStatusCodes.UNPROCESSABLE_ENTITY;
+
+  constructor(errors: ValidationError[]) {
+    const stringifiedErrors = JSON.stringify(errors);
+    super(`${ParamMissingError.Msg}${stringifiedErrors}`, ParamMissingError.HttpStatus);
   }
 }
 
