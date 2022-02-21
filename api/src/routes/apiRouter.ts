@@ -1,13 +1,15 @@
-import StatusCodes, { BAD_REQUEST } from 'http-status-codes';
+import StatusCodes from 'http-status-codes';
 import { Router, Request, Response } from 'express';
 
 import productsMock from '@mocks/products.json';
 import { getOverallRating } from 'src/utils/getOverallRating/getOverallRating';
 import { TProduct, TReview } from 'src/types';
+import { ParamMissingError, ProductNotFoundError } from '@errors/APIErrors';
 
-const { CREATED, OK, NOT_FOUND } = StatusCodes;
+const { CREATED, OK } = StatusCodes;
 
 export enum ERoutes {
+  API = '/api',
   Products = '/products/',
   Product = '/products/:id',
   Reviews = '/products/:id/reviews',
@@ -19,12 +21,39 @@ const db = [
   ...productsMock,
 ];
 
+router.get('', (_req: Request, res: Response) => {
+  return res.status(OK).send('Welcome to ProductAPI!');
+});
+
 router.get(ERoutes.Products, (_req: Request, res: Response) => {
   const products = db;
+
   if (!products || products.length === 0) {
-    return res.sendStatus(NOT_FOUND);
+    throw new ProductNotFoundError();
   }
+
   return res.status(OK).json(products);
+});
+
+router.get(ERoutes.Products, (_req: Request, res: Response) => {
+  const products = db;
+
+  if (!products || products.length === 0) {
+    throw new ProductNotFoundError();
+  }
+
+  return res.status(OK).json(products);
+});
+
+router.get(ERoutes.Product, (req: Request, res: Response) => {
+  const { params } = req;
+  const product = db.find((item) => item._id === params.id);
+
+  if (!product) {
+    throw new ProductNotFoundError();
+  }
+
+  return res.status(OK).json(product);
 });
 
 router.get(ERoutes.Reviews, (req: Request, res: Response) => {
@@ -32,7 +61,7 @@ router.get(ERoutes.Reviews, (req: Request, res: Response) => {
   const product = db.find((item) => item._id === params.id);
 
   if (!product) {
-    return res.status(NOT_FOUND);
+    throw new ProductNotFoundError();
   }
 
   return res.status(OK).json(product.reviews);
@@ -44,13 +73,13 @@ router.post(ERoutes.Reviews, (req: Request, res: Response) => {
   const review = body as TReview;
 
   if(!params.id || !Object.values(review)) {
-    return res.status(BAD_REQUEST);
+    throw new ParamMissingError();
   }
 
   const product = db.find((item) => item._id === params.id) as TProduct;
 
   if (!product) {
-    return res.status(NOT_FOUND);
+    throw new ProductNotFoundError();
   }
 
   if (!review.reviewText) {
@@ -64,6 +93,6 @@ router.post(ERoutes.Reviews, (req: Request, res: Response) => {
   return res.status(CREATED).json(body);
 });
 
-router.use('/api', router);
+router.use(ERoutes.API, router);
 
 export default router;
