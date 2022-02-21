@@ -1,6 +1,5 @@
 [
     {
-        "_id": "01",
         "name": "Redux course",
         "description": "A good course to get aquatinted with the best state management library",
         "thumbnailImage": "https://cdn-ssl-devio-img.classmethod.jp/wp-content/uploads/2021/06/unnamed-file-1.png",
@@ -14,7 +13,6 @@
         ]
     },
     {
-        "_id": "02",
         "name": "React course",
         "description": "Awesome course for beginners. Try it for free.",
         "thumbnailImage": "https://www.vectorlogo.zone/logos/reactjs/reactjs-ar21.png",
@@ -22,7 +20,6 @@
         "reviews": []
     },
     {
-        "_id": "03",
         "name": "NodeJs",
         "description": "NodeJS deep dive. Buy our course and become a NodeJS professional",
         "thumbnailImage": "https://logowik.com/content/uploads/images/nodejs.jpg",
@@ -36,7 +33,6 @@
         ]
     },
     {
-        "_id": "04",
         "name": "MaxProfit algorithm",
         "description": "1001 ways to solve MaxProfit task. Buy this course and solve it",
         "thumbnailImage": "https://www.pngitem.com/pimgs/m/211-2110657_confused-person-my-hero-academia-ship-memes-hd.png",
@@ -50,7 +46,6 @@
         ]
     },
     {
-      "_id": "05",
       "name": "How to make nice preview",
       "description": "With our course you can find and paste nice previews to your cards",
       "overallRating": 3,
