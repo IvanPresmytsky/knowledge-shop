@@ -6,9 +6,13 @@ import morgan from 'morgan';
 import helmet from 'helmet';
 import cors from 'cors';
 import logger from 'jet-logger';
+import mongoose from 'mongoose';
 
+import config from '@db/config';
 import apiRouter from '@routes/apiRouter';
 import { CustomError } from '@errors/APIErrors';
+import productsMock from '@mocks/products.json';
+import { importData } from '@services/products';
 
 // Create app
 const app = express();
@@ -41,5 +45,18 @@ app.use((err: Error | CustomError, _req: Request, res: Response) => {
       error: err.message,
   });
 });
+
+// Connect to DB and seed mock data
+(async() => {
+  try {
+    const connectionDB = await mongoose.connect(config.url, {dbName: config.dbName });
+    connectionDB.connection.db.dropDatabase();
+    logger.info(`DB ${config.dbName} successfully connected to MongoDB on ${config.url}`);
+  } catch (err) {
+    logger.err(`There was a db connection error\n ${err as string}`);
+    throw new Error(`There was a db connection error\n ${err as string}`);
+  }
+  await importData(productsMock);
+})();
 
 export default app;
