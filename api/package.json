@@ -35,8 +35,9 @@
           "code": 100
         }
       ],
-      "no-console": 1,
+      "no-console": ["error", { "allow": ["warn", "error"] }],
       "no-extra-boolean-cast": 0,
+      "@typescript-eslint/no-misused-promises": 0,
       "@typescript-eslint/restrict-plus-operands": 0,
       "@typescript-eslint/explicit-module-boundary-types": 0,
       "@typescript-eslint/no-explicit-any": 0,

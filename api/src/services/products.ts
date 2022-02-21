@@ -47,7 +47,7 @@ export const addReview = async (id: string, review: TReview) => {
   }
 };
 
-export const importData = async (mockData: any) => {
+export const importData = async (mockData: object[]) => {
   try {
     await Products.collection.insertMany(mockData)
   } catch (err) {

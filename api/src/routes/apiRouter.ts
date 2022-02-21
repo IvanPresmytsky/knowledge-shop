@@ -1,10 +1,9 @@
 import StatusCodes from 'http-status-codes';
 import { Router, Request, Response } from 'express';
-// import expressValidator from 'express-validator';
+import { body, validationResult } from 'express-validator';
 
-// import productsMock from '@mocks/products.json';
 import { TReview } from 'src/types';
-// import { ParamsInvalidError } from '@errors/APIErrors';
+import { ParamsInvalidError } from '@errors/APIErrors';
 import { addReview, getAllProducts, getProductById } from '@services/products';
 
 const { OK } = StatusCodes;
@@ -27,33 +26,40 @@ router.get(ERoutes.Products, async (_req: Request, res: Response) => {
   return res.status(OK).json(products);
 });
 
-router.get(ERoutes.Product, async (req: Request, res: Response) => {
-  /* const errors = expressValidator.validationResult(req);
+router.get(
+  ERoutes.Product,
+  async (req: Request, res: Response) => {
+    const { params } = req;
 
-  if (!errors.isEmpty()) {
-    throw new ParamsInvalidError(errors.array());
-  } */
+    const product = await getProductById(params.id)
 
-  const { params } = req;
+    return res.status(OK).json(product);
+  }
+);
 
-  const product = await getProductById(params.id)
+router.patch(
+  ERoutes.Product,
+  body('reviewerName').not().isEmpty().trim().escape(),
+  body('rating').custom(value => {
+    if (value < 0 || value > 5) {
+      throw new Error('Rating value is out of range');
+    }
+    return true;
+  }),
+  async (req: Request, res: Response) => {
+    const errors = validationResult(req);
 
-  return res.status(OK).json(product);
-});
+    if (!errors.isEmpty()) {
+      throw new ParamsInvalidError(errors.array());
+    }
 
-router.patch(ERoutes.Product, async (req: Request, res: Response) => {
-  /* const errors = expressValidator.validationResult(req);
+    const { params, body } = req;
 
-  if (!errors.isEmpty()) {
-    throw new ParamsInvalidError(errors.array());
-  } */
+    const newProduct = await addReview(params.id, body as TReview);
 
-  const { params, body } = req;
-
-  const newProduct = await addReview(params.id, body as TReview);
-
-  return res.status(OK).json(newProduct);
-});
+    return res.status(OK).json(newProduct);
+  }
+);
 
 router.use(ERoutes.API, router);
 
