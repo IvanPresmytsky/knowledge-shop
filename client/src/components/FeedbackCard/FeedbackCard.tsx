@@ -20,7 +20,7 @@ const FeedbackCard = ({ review }: TFeedbackCardProps) => {
         <Typography paragraph>{review.reviewText || ''}</Typography>
         <Rating
           size="large"
-          defaultValue={review.overallRating}
+          defaultValue={review.rating}
           precision={0.1}
           readOnly
         />

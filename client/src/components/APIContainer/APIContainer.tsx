@@ -29,7 +29,7 @@ export const APIContainer = () => {
       (APIError: Error) => setError(APIError),
       () => setLoading(false)
     );
-  }, [createdReview]);
+  }, [createdReview, setProducts, setError, setLoading]);
 
   const handleAddReview = useCallback(
     (productId: string, reviewData: TReview) => {

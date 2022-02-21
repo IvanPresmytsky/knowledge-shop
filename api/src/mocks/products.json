@@ -9,7 +9,7 @@
           {
             "reviewerName": "Dan Abramov",
             "reviewText": "Give me my money back!!! The worst course ever",
-            "overallRating": 0
+            "rating": 0
           }
         ]
     },
@@ -31,7 +31,7 @@
           {
             "reviewerName": "Leonardo D",
             "reviewText": "We need to go deeper",
-            "overallRating": 3
+            "rating": 3
           }
         ]
     },
@@ -45,7 +45,7 @@
           {
             "reviewerName": "Ivan",
             "reviewText": "I definitely like it. After passing it, finally I solve it!",
-            "overallRating": 5
+            "rating": 5
           }
         ]
     },
@@ -58,7 +58,7 @@
         {
           "reviewerName": "Cards maker",
           "reviewText": "It's too hard for mee(((",
-          "overallRating": 3
+          "rating": 3
         }
       ]
   }

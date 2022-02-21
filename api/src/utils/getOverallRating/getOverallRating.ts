@@ -6,7 +6,7 @@ export const getOverallRating = (reviews?: TReview[]) => {
   }
 
   const reviewsCount = reviews.length;
-  const overallRatingSum = reviews.reduce((acc, curr) => acc + curr.overallRating, 0);
+  const overallRatingSum = reviews.reduce((acc, curr) => acc + curr.rating, 0);
 
   return overallRatingSum / reviewsCount;
 }

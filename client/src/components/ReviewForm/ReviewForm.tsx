@@ -25,7 +25,7 @@ export const ReviewForm = ({
 }: TReviewFormProps) => {
   const [reviewerName, setReviewerName] = useState('');
   const [reviewText, setReviewText] = useState('');
-  const [overallRating, setOverallRating] = useState(product.overallRating);
+  const [rating, setRating] = useState(product.overallRating);
   const [isRatingChanged, setIsRatingChanged] = useState(false);
   const [hasRatingValidationError, setHasRatingValidationError] =
     useState(false);
@@ -46,12 +46,12 @@ export const ReviewForm = ({
     [setReviewText]
   );
 
-  const handleOverallRatingChange = useCallback(
+  const handleRatingChange = useCallback(
     (e) => {
-      setOverallRating(+e.target.value);
+      setRating(+e.target.value);
       setIsRatingChanged(true);
     },
-    [setOverallRating, setIsRatingChanged]
+    [setRating, setIsRatingChanged]
   );
 
   const handleAddReview = useCallback(() => {
@@ -72,7 +72,7 @@ export const ReviewForm = ({
     const reviewData = {
       reviewerName: reviewerName.trim(),
       reviewText: reviewText.trim(),
-      overallRating,
+      rating,
     };
 
     onAddReview(product._id, reviewData);
@@ -85,7 +85,7 @@ export const ReviewForm = ({
     isRatingChanged,
     reviewText,
     reviewerName,
-    overallRating,
+    rating,
     product._id,
   ]);
 
@@ -126,8 +126,8 @@ export const ReviewForm = ({
           name="overall-rating"
           defaultValue={product.overallRating}
           precision={0.1}
-          onChange={handleOverallRatingChange}
-          value={overallRating}
+          onChange={handleRatingChange}
+          value={rating}
         />
         <TextField
           margin="dense"

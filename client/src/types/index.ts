@@ -1,7 +1,7 @@
 export type TReview = {
   reviewerName: string;
   reviewText?: string;
-  overallRating: number;
+  rating: number;
 };
 
 export type TProduct = {

@@ -13,7 +13,7 @@ export const productsMock = [
       {
         reviewerName: 'Dan Abramov',
         reviewText: 'Give me my money back!!! The worst course ever!',
-        overallRating: 0,
+        rating: 0,
       },
     ],
   },
@@ -36,7 +36,7 @@ export const productsMock = [
       {
         reviewerName: 'Leonardo D',
         reviewText: 'We need to go deeper',
-        overallRating: 3,
+        rating: 3,
       },
     ],
   },
@@ -52,7 +52,7 @@ export const productsMock = [
         reviewerName: 'Ivan',
         reviewText:
           'I definitely like it. After passing it, finally I solve it!',
-        overallRating: 5,
+        rating: 5,
       },
     ],
   },
