@@ -1,0 +1,14 @@
+.ci
+.github
+.vscode
+
+node_modules
+coverage
+dist
+
+.editorconfig
+.env
+.gitignore
+
+Dockerfile
+docker-compose*.yml
