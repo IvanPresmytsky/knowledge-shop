@@ -2,7 +2,7 @@
   "name": "products-api",
   "version": "0.1.0",
   "scripts": {
-    "start": "npx ts-node -r tsconfig-paths/register ./src --env=production",
+    "start": "npx ts-node ./src --env=production",
     "start:dev": "nodemon",
     "check:types": "npx tsc --project ./tsconfig.json --noEmit",
     "lint": "npm run check:types && eslint . --ext .ts",
