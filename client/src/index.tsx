@@ -5,7 +5,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 
 import { ErrorBoundary } from './components/ErrorBoundary/ErrorBoundary';
 import ErrorMessageModal from './components/ErrorMessageModal/ErrorMessageModal';
-import App from './App/App';
+import App from './components/App/App';
 import './index.css';
 
 ReactDOM.render(

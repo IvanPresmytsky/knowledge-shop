@@ -2,7 +2,7 @@ import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 
-import APIContainer from '../components/APIContainer/APIContainer';
+import APIContainer from '../APIContainer/APIContainer';
 
 import './App.css';
 
