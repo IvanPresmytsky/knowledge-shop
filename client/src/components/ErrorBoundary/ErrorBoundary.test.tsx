@@ -37,14 +37,14 @@ describe('ErrorBoundary component', () => {
 
     const { container } = render(component);
 
-    expect(container.innerHTML).toMatchInlineSnapshot('"<p>Rendered children</p>"');
+    expect(container.innerHTML).toMatchInlineSnapshot(
+      '"<p>Rendered children</p>"'
+    );
   });
 
   it('renders `null` in case if any exception was raised in children', () => {
     const component = (
-      <ErrorBoundary
-        errorPlaceholder={null}
-      >
+      <ErrorBoundary errorPlaceholder={null}>
         <ExceptionComponent />
       </ErrorBoundary>
     );
@@ -54,13 +54,9 @@ describe('ErrorBoundary component', () => {
     let exception;
     try {
       rerender(
-        <ErrorBoundary
-          errorPlaceholder={null}
-        >
-          <ExceptionComponent
-            shouldThrow
-          />
-        </ErrorBoundary>,
+        <ErrorBoundary errorPlaceholder={null}>
+          <ExceptionComponent shouldThrow />
+        </ErrorBoundary>
       );
     } catch (err) {
       exception = err;
@@ -82,10 +78,8 @@ describe('ErrorBoundary component', () => {
     try {
       rerender(
         <ErrorBoundary>
-          <ExceptionComponent
-            shouldThrow
-          />
-        </ErrorBoundary>,
+          <ExceptionComponent shouldThrow />
+        </ErrorBoundary>
       );
     } catch (err) {
       exception = err;

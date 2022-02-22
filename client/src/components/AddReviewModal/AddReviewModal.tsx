@@ -25,34 +25,30 @@ export const AddReviewModal = ({
   onClose,
   onAddReview,
   product,
-}: TAddReviewModalProps) => {
-  return (
-    <Dialog open={isOpen} onClose={onClose}>
-      <DialogTitle className="addReviewModalTitle">Add Review</DialogTitle>
-      <DialogContent className="addReviewModalContent">
-        <Box>
-          <Typography component="h4" fontWeight="bold">
-            {product.name}
-          </Typography>
-          <Image
-            src={product.thumbnailImage || DEFAULT_THUMBNAIL_IMG}
-            style={{ height: DEFAULT_PREVIEW_HEIGHT, paddingTop: 0 }}
-            imageStyle={{
-              height: DEFAULT_PREVIEW_HEIGHT,
-              objectFit: 'cover',
-              backgroundSize: 'cover',
-            }}
-          />
-          <Typography paragraph>{product.description}</Typography>
-        </Box>
-      </DialogContent>
-      <ReviewForm
-        product={product}
-        onAddReview={onAddReview}
-        onClose={onClose}
-      />
-    </Dialog>
-  );
-};
+}: TAddReviewModalProps) => (
+  <Dialog open={isOpen} onClose={onClose}>
+    <DialogTitle data-testid="modal-title" className="addReviewModalTitle">
+      Add Review
+    </DialogTitle>
+    <DialogContent className="addReviewModalContent">
+      <Box>
+        <Typography component="h4" fontWeight="bold">
+          {product.name}
+        </Typography>
+        <Image
+          src={product.thumbnailImage || DEFAULT_THUMBNAIL_IMG}
+          style={{ height: DEFAULT_PREVIEW_HEIGHT, paddingTop: 0 }}
+          imageStyle={{
+            height: DEFAULT_PREVIEW_HEIGHT,
+            objectFit: 'cover',
+            backgroundSize: 'cover',
+          }}
+        />
+        <Typography paragraph>{product.description}</Typography>
+      </Box>
+    </DialogContent>
+    <ReviewForm product={product} onAddReview={onAddReview} onClose={onClose} />
+  </Dialog>
+);
 
 export default memo(AddReviewModal);

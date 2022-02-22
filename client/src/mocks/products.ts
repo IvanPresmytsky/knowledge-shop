@@ -11,6 +11,7 @@ export const productsMock = [
       'https://cdn-ssl-devio-img.classmethod.jp/wp-content/uploads/2021/06/unnamed-file-1.png',
     reviews: [
       {
+        _id: uuidv4(),
         reviewerName: 'Dan Abramov',
         reviewText: 'Give me my money back!!! The worst course ever!',
         rating: 0,
@@ -34,6 +35,7 @@ export const productsMock = [
     overallRating: 3,
     reviews: [
       {
+        _id: uuidv4(),
         reviewerName: 'Leonardo D',
         reviewText: 'We need to go deeper',
         rating: 3,
@@ -49,6 +51,7 @@ export const productsMock = [
       'https://www.pngitem.com/pimgs/m/211-2110657_confused-person-my-hero-academia-ship-memes-hd.png',
     reviews: [
       {
+        _id: uuidv4(),
         reviewerName: 'Ivan',
         reviewText:
           'I definitely like it. After passing it, finally I solve it!',
