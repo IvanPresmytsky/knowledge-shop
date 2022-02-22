@@ -24,7 +24,7 @@ export const FeedbacksModal = ({
 }: TFeedbacksModalProps) => {
   return (
     <Dialog open={isOpen} onClose={onClose} scroll="paper">
-      <DialogTitle className="feedbacksModalTitle">Add Review</DialogTitle>
+      <DialogTitle className="feedbacksModalTitle">Feedbacks</DialogTitle>
       <DialogContent className="feedbacksModalContent">
         <Stack spacing={2}>
           {reviews.map((review) => (
