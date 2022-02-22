@@ -31,10 +31,10 @@
     "eject": "react-scripts eject",
     "check:types": "npx tsc --project ./tsconfig.json --noEmit",
     "format": "prettier --write src/**/*.ts{,x}",
-    "lint": "npm run check:types && npx eslint --config ./config/eslint/.eslintrc.json src/**/*.ts{,x}",
+    "lint": "npm run check:types && npm run lint:styles && npx eslint --config ./config/eslint/.eslintrc.json src/**/*.ts{,x}",
     "lint:styles": "npx stylelint --config ./config/stylelint/.stylelintrc.json --ignore-path ./config/stylelint/.stylelintignore .",
     "lint:fix": "npm run check:types && npx eslint --config ./config/eslint/.eslintrc.json src/**/*.ts{,x} --fix",
-    "lint:fixAll": "npm run format && npm run lint:fix",
+    "lint:fixAll": "npm run format && npm run lint:fix && npm run lint:fix",
     "check:build": "npm run check:types && npm run lint:styles && npm run lint"
   },
   "browserslist": {

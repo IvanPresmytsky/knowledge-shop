@@ -1,6 +1,7 @@
 configs/
 coverage/
 dist/
+Dockerfile
 
 *.*
 !*.css
