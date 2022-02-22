@@ -5,7 +5,7 @@
 
 .main {
   padding-top: 50px;
-  height: calc(100vh - 10vh);
+  height: calc(100vh - 100px);
   overflow-y: auto;
 
   /* Hide scrollbar for IE, Edge and Firefox */
@@ -19,14 +19,14 @@
 }
 
 .header {
-  height: 5vh;
-  padding: 1vh;
+  height: 50px;
+  padding: 5px;
   align-items: center;
 }
 
 .footer {
-  height: 5vh;
-  padding: 1.5vh;
+  height: 50px;
+  padding: 15px;
   background: #1976d2;
   color: #fff;
 }
