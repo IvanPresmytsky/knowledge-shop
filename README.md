@@ -6,11 +6,11 @@ Super simple full-stack application represented  a small online store
 
 This repo contains frontend and backend applications in the following folders:
 
-`/api` - backend API server (NodeJS server on ExpressJS with MongoDB database)
+* `/api` - backend API server (NodeJS server on ExpressJS with MongoDB database)
 
 runs on port `3000` by default
 
-`/client` - frontend web application (ReactJS app based on ReactCreateApp build)
+* `/client` - frontend web application (ReactJS app based on ReactCreateApp build)
 
 runs on port `9000` by default
 
@@ -20,24 +20,22 @@ The application hasn't been released, so that all the code is in `develop` branc
 
 So that you have to do checkout to `develop` branch
 
-The simplest way to run the app just running bash script from the root DIR
+The simplest way to run the app - just running bash script from the root DIR
 
 !NOTE `docker` and `docker-compose` must be installed to your system for the next steps
 
 `bash bin/start.sh` (should be run with root rights in case your system requires it for docker)
 
-Under the hood this script do the following:
+#### Under the hood this script do the following:
 
-- builds the docker containers for the `api` and `client`
-- runs the containers
+* builds the docker containers for the `api` and `client`
+* runs the containers
+  - `9000` port for `api`,
+  - `3000` port for `client`,
+  - `27017` port for mongoDB container (As for local testing usage no addition credentials needed on this step)
+* opens the `client` app on `3000` port of your browser
 
-    -`9000` port for `api`,
-    -`3000` port for `client`,
-    -`27017` port for mongoDB container (As for local testing usage no addition credentials needed on this step)
-
-- opens the `client` app on `3000` port of your browser
-
-You can also do all the steps above manually:
+#### You can also do all the steps above manually:
 
 - `docker build`
 - `docker-compose up`
