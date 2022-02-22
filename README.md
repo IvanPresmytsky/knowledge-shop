@@ -1,18 +1,18 @@
 # Knowledge Shop
 
-Super simple full-stack application represented small online store
+Super simple full-stack application represented  a small online store
 
 ## Project Structure
 
 This repo contains frontend and backend applications in the following folders:
 
-/api - backend API server (NodeJS server on ExpressJS with MongoDB database)
+`/api` - backend API server (NodeJS server on ExpressJS with MongoDB database)
 
-runs on port 3000 by default
+runs on port `3000` by default
 
-/client - frontend web application (ReactJS app based on ReactCreateApp build)
+`/client` - frontend web application (ReactJS app based on ReactCreateApp build)
 
-runs on port 9000 by default
+runs on port `9000` by default
 
 ## How to run the app
 
@@ -30,9 +30,11 @@ Under the hood this script do the following:
 
 - builds the docker containers for the `api` and `client`
 - runs the containers
-  `9000` port for `api`,
-  `3000` port for `client`,
-  `27017` port for mongoDB container (As for local testing usage no addition credentials needed on this step)
+
+    -`9000` port for `api`,
+    -`3000` port for `client`,
+    -`27017` port for mongoDB container (As for local testing usage no addition credentials needed on this step)
+
 - opens the `client` app on `3000` port of your browser
 
 You can also do all the steps above manually:
