@@ -83,6 +83,7 @@ Runs on port 9000 by default with `npm run start` script
 - `npm run check:types` - checks the types
 - `npm run lint` - TS linter and ESlint checks
 - `npm run test` - runs all the tests
+- `npm run test:coverage` - runs all the tests with coverage report
 
 ### Linting rules
 

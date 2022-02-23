@@ -6,7 +6,8 @@
     "start:dev": "nodemon",
     "check:types": "npx tsc --project ./tsconfig.json --noEmit",
     "lint": "npm run check:types && eslint . --ext .ts",
-    "test": "npx jest --config ./jest.config.json"
+    "test": "npx jest --config ./jest.config.json --coverage",
+    "test:coverage": "npm run test --coverage"
   },
   "nodemonConfig": {
     "watch": [
