@@ -3,7 +3,7 @@ import { render, within } from '@testing-library/react';
 import FeedbacksModal, { TFeedbacksModalProps } from './FeedbacksModal';
 import { productsMock } from '../../mocks/products';
 
-describe('AddReviewModal component', () => {
+describe('FeedbackModal component', () => {
   const getComponent = (props?: Partial<TFeedbacksModalProps>) => (
     <FeedbacksModal
       isOpen
@@ -22,8 +22,8 @@ describe('AddReviewModal component', () => {
   it('renders correctly in open state', () => {
     render(getComponent());
 
-    expect(within(document.body).getByTestId('feedbacks-modal-title')).toHaveTextContent(
-      'Feedbacks'
-    );
+    expect(
+      within(document.body).getByTestId('feedbacks-modal-title')
+    ).toHaveTextContent('Feedbacks');
   });
 });

@@ -49,8 +49,7 @@ app.use((err: Error | CustomError, _req: Request, res: Response) => {
 // Connect to DB and seed mock data
 (async() => {
   try {
-    const connectionDB = await mongoose.connect(config.url, {dbName: config.dbName });
-    connectionDB.connection.db.dropDatabase();
+    await mongoose.connect(config.url, {dbName: config.dbName });
     logger.info(`DB ${config.dbName} successfully connected to MongoDB on ${config.url}`);
   } catch (err) {
     logger.err(`There was a db connection error\n ${err as string}`);

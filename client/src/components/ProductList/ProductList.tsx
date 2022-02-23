@@ -18,10 +18,7 @@ export type TProductListProps = {
   onAddReview: TAddReviewHandler;
 };
 
-export const ProductList = ({
-  products,
-  onAddReview,
-}: TProductListProps) => {
+export const ProductList = ({ products, onAddReview }: TProductListProps) => {
   const [selectedProduct, setSelectedProduct] = useState<TProduct | null>();
   const [isAddReviewModalOpened, setAddReviewModalOpened] = useState(false);
   const [isFeedbacksModalOpened, setIsFeedbacksModalOpened] = useState(false);

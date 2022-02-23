@@ -4,13 +4,8 @@ import ProductList, { TProductListProps } from './ProductList';
 import { productsMock } from '../../mocks/products';
 
 describe('ProductList component', () => {
-  const product = productsMock[0];
   const getComponent = (props?: Partial<TProductListProps>) => (
-    <ProductList
-      products={productsMock}
-      onAddReview={jest.fn()}
-      {...props}
-    />
+    <ProductList products={productsMock} onAddReview={jest.fn()} {...props} />
   );
 
   it('renders all the cards correctly', () => {

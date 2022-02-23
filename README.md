@@ -55,9 +55,12 @@ This application support (and have been tested on) the following browsers:
 
 ### Scripts
 
+!NOTE: Before running any script please run `npm i`
+
 - `npm run start` - runs application in development mode on 3000 port
 - `npm run build` - builds application in production mode (artifacts will be placed in `/dist` folder)
-- `npm run test` - runs tests
+- `npm run test` - runs all the tests
+- `npm run test:coverage` - runs all the tests with coverage report
 - `npm run check:types` - checks the types
 - `npm run format` - runs prettier to fix formatting
 - `npm run lint:styles` - runs linter checks for CSS styles using _stylelint_
@@ -77,6 +80,8 @@ This application support (and have been tested on) the following browsers:
 Runs on port 9000 by default with `npm run start` script
 
 ### Scripts
+
+!NOTE: Before running any script please run `npm i`
 
 - `npm run start` - runs application in production mode on 9000 port
 - `npm run start: dev` - runs application via nodemon in development mode on 9000 port

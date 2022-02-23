@@ -61,7 +61,11 @@ const ProductCard = ({
           Add Review
         </Button>
         {!!reviews.length && (
-          <Button data-testid="see-feedback-button" id={id} onClick={onFeedbacksModalOpen}>
+          <Button
+            data-testid="see-feedback-button"
+            id={id}
+            onClick={onFeedbacksModalOpen}
+          >
             See feedbacks
           </Button>
         )}
