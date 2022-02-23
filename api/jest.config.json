@@ -1,0 +1,15 @@
+{
+  "preset": "ts-jest",
+  "moduleNameMapper": {
+    "@db/(.*)$": "<rootDir>/src/db/$1",
+    "@models/(.*)$": "<rootDir>/src/models/$1",
+    "@errors/(.*)$": "<rootDir>/src/errors/$1",
+    "@services/(.*)$": "<rootDir>/src/services/$1",
+    "@routes/(.*)$": "<rootDir>/src/routes/$1",
+    "@mocks/(.*)$": "<rootDir>/src/mocks/$1",
+    "@utils/(.*)$": "<rootDir>/src/utils/$1"
+  },
+  "testMatch": [
+    "**/?(*.)+(spec).ts?(x)"
+  ]
+}

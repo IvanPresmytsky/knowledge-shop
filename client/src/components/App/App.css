@@ -1,0 +1,32 @@
+.app {
+  height: 100vh;
+  background-color: aliceblue;
+}
+
+.main {
+  padding-top: 50px;
+  height: calc(100vh - 100px);
+  overflow-y: auto;
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.main::-webkit-scrollbar {
+  display: none;
+}
+
+.header {
+  height: 50px;
+  padding: 5px;
+  align-items: center;
+}
+
+.footer {
+  height: 50px;
+  padding: 15px;
+  background: #1976d2;
+  color: #fff;
+}

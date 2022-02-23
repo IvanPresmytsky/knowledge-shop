@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App component renders correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="app MuiBox-root css-0"
+  >
+    <header
+      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation4 MuiAppBar-root MuiAppBar-colorPrimary MuiAppBar-positionStatic header css-hip9hq-MuiPaper-root-MuiAppBar-root"
+    >
+      <h1
+        class="MuiTypography-root MuiTypography-h4 css-5lbw0b-MuiTypography-root"
+      >
+        Knowledge Shop
+      </h1>
+    </header>
+    <div
+      class="loadingContainer MuiBox-root css-k008qs"
+    >
+      <span
+        class="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary css-18lrjg1-MuiCircularProgress-root"
+        role="progressbar"
+        style="width: 40px; height: 40px;"
+      >
+        <svg
+          class="MuiCircularProgress-svg css-1idz92c-MuiCircularProgress-svg"
+          viewBox="22 22 44 44"
+        >
+          <circle
+            class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate css-176wh8e-MuiCircularProgress-circle"
+            cx="44"
+            cy="44"
+            fill="none"
+            r="20.2"
+            stroke-width="3.6"
+          />
+        </svg>
+      </span>
+    </div>
+    <footer
+      class="footer MuiBox-root css-1djk842"
+    >
+      <p
+        class="MuiTypography-root MuiTypography-body1 MuiTypography-paragraph css-873f3c-MuiTypography-root"
+      >
+        © Ivan Presmytsky
+      </p>
+    </footer>
+  </div>
+</DocumentFragment>
+`;
