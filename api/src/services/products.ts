@@ -1,5 +1,5 @@
 import { ParamMissingError, ProductNotFoundError } from '@errors/APIErrors';
-import Products from '@models/products';
+import Products, { Review } from '@models/products';
 import { TProduct, TReview } from 'src/types';
 import { getOverallRating } from '@utils/getOverallRating/getOverallRating';
 
@@ -19,7 +19,7 @@ export const getProductById = async (id: string): Promise<TProduct | null> => {
   }
 };
 
-export const addReview = async (id: string, review: TReview) => {
+export const addReview = async (id: string, review: Omit<TReview, '_id'>) => {
   const product = await getProductById(id);
 
   if (!product) {
@@ -27,10 +27,7 @@ export const addReview = async (id: string, review: TReview) => {
   }
 
   try {
-    const newReview = {
-      ...review,
-      reviewText: review.reviewText || '',
-    }
+    const newReview = new Review(review);
 
     const newReviews = product.reviews.concat([newReview]);
     const newOverallRating = getOverallRating(newReviews) || product.overallRating;

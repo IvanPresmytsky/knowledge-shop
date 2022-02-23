@@ -19,6 +19,8 @@ const reviewSchema = new mongoose.Schema({
   },
 });
 
+export const Review = mongoose.model('reviews', reviewSchema);
+
 const productSchema = new mongoose.Schema({
   name: {
     type: String,
