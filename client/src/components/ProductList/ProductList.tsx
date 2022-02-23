@@ -13,7 +13,7 @@ export type TAddReviewHandler = (
   reviewData: TReviewBody
 ) => void;
 
-export type TProductTypeListProps = {
+export type TProductListProps = {
   products: TProduct[];
   onAddReview: TAddReviewHandler;
 };
@@ -21,7 +21,7 @@ export type TProductTypeListProps = {
 export const ProductList = ({
   products,
   onAddReview,
-}: TProductTypeListProps) => {
+}: TProductListProps) => {
   const [selectedProduct, setSelectedProduct] = useState<TProduct | null>();
   const [isAddReviewModalOpened, setAddReviewModalOpened] = useState(false);
   const [isFeedbacksModalOpened, setIsFeedbacksModalOpened] = useState(false);
